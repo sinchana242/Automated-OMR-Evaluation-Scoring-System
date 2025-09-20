@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OMR Grader</title>
+</head>
+<body>
+    <h1>Upload OMR Sheet for Grading</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="omr_image" accept="image/*" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if score != None %}
+        <h2>Your Score: {{ score | round(2) }}%</h2>
+        <h3>Result:</h3>
+        <img src="{{ url_for('static', filename='results/' + result_image) }}" alt="Result Image" />
+    {% endif %}
+</body>
+</html>
